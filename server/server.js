@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const formidable = require('express-formidable');
 const cloudinary = require('cloudinary');
+
 const SHA1 = require("crypto-js/sha1"); 
 const moment = require("moment");
 const fs = require('fs');
@@ -13,20 +14,15 @@ const mongoose = require('mongoose');
 const async = require('async');
 require('dotenv').config();
 
+// connect to mongodb
+mongoose.Promise = global.Promise;
+mongoose.connect(process.env.MONGODB_URI)
+
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
 app.use(express.static('client/build'))
-
-// DB config
-const db = require('../config/keys').mongoURI;
-
-// connect to mongoDB
-mongoose.
-connect(db, { useNewUrlParser: true })
-.then(() => console.log('MongoDB Connected'))
-.catch(err => console.log(err));
 
 // image upload
 cloudinary.config({
@@ -48,6 +44,7 @@ const { Site } = require('./models/site');
 const { auth } = require('./middleware/auth');
 const { admin } = require('./middleware/admin');
 
+const { sendEmail } = require('./utils/mail/index');
 //=================================
 //             PRODUCTS
 //=================================
@@ -258,7 +255,8 @@ app.post('/api/users/register',(req,res)=>{
 
   user.save((err,doc)=>{
       if(err) return res.json({success:false,err});
-      res.status(200).json({
+      sendEmail(doc.email,doc.name,null,"welcome");
+      return res.status(200).json({
           success: true
           
       })
