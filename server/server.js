@@ -495,7 +495,7 @@ app.post('/api/site/site_data',auth,admin,(req,res)=>{
     )
 })
 
-// DEFAULT 
+// DEFAULT for heroku
 if( process.env.NODE_ENV === 'production' ){
     const path = require('path');
     app.get('/*',(req,res)=>{
