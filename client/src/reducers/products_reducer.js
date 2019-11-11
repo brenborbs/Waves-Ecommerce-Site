@@ -9,10 +9,10 @@ import {
   ADD_PRODUCT,
   CLEAR_PRODUCT,
   GET_PRODUCT_DETAIL,
-    CLEAR_PRODUCT_DETAIL
+CLEAR_PRODUCT_DETAIL
 } from '../actions/types';
 
-
+ 
 export default function(state={},action){
   switch(action.type){
       case GET_PRODUCTS_BY_SELL:
@@ -26,7 +26,7 @@ export default function(state={},action){
             ...state, 
             addBrand: action.payload.success , 
             brands:action.payload.brands 
-        }
+        } 
       case GET_WOODS:
         return {...state, woods: action.payload}
     case ADD_WOOD:

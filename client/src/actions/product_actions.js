@@ -59,7 +59,7 @@ export function getProductsByArrival(){
         payload: request
     }
 }
-
+ 
 export function getProductsToShop(skip, limit,filters =[], previousState = []){
     const data = {
         limit,
@@ -103,7 +103,7 @@ export function clearProduct(){
         payload: ''
     }
 }
-
+ 
 ////////////////////////////////////
 //////        CATEGORIES
 ////////////////////////////////////

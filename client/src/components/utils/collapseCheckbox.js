@@ -57,7 +57,7 @@ renderList = () => (
           </ListItem>
       ))
   :null
-)
+) 
 // handleToggle function for renderList
 handleToggle = value => () => {
   const { checked } = this.state;

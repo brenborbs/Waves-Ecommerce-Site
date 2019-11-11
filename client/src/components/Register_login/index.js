@@ -1,7 +1,7 @@
 import React from 'react';
 import MyButton from '../utils/button';
 import Login from './login';
-
+ 
 const RegisterLogin = () => {
     return (
         <div className="page_wrapper">

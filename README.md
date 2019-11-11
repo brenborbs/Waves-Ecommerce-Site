@@ -1,6 +1,21 @@
 This is a Complete fullstack E-commerce Guitar Selling Shop.
 
-This is my first ever big practice project in learning MERN stack.
+add .env file on main project folder
+
+```js
+MONGODB_URI=
+SECRET=
+CLOUD_NAME=
+CLOUD_API_KEY=
+CLOUD_API_SECRET=
+EMAIL_PASS=
+```
+
+To run the project, client and server
+
+```js
+npm run dev
+```
 
 It is made using REACT and Redux on the front-end.
 The back end are made using NodeJS, expressJS framework and Mongodb NoSQL.

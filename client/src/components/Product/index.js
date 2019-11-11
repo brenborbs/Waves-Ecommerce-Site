@@ -18,7 +18,7 @@ class ProductPage extends Component {
             }
         })
     }
-
+ 
     componentWillUnmount(){
         this.props.dispatch(clearProductDetail())
     }
